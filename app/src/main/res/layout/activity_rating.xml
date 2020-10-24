@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RatingActivity">
+    <include
+        android:id="@+id/toolbar_add_product"
+        layout="@layout/toolbar"/>
+    <ImageView
+        android:id="@+id/imgProducts"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        android:padding="2dp"
+        android:src="@drawable/dummy_image"/>
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_margin="5dp"
+        android:inputType="text"
+        android:hint="Title"
+        android:textColorHint="#a9a9a9" />
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_margin="5dp"
+        android:hint="Description"
+        android:textColorHint="#a9a9a9" />
+    <EditText
+        android:id="@+id/etCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_margin="5dp"
+        android:hint="Category"
+        android:textColorHint="#a9a9a9" />
+    <EditText
+        android:id="@+id/etPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:inputType="number"
+        android:layout_margin="5dp"
+        android:hint="Price"
+        android:textColorHint="#a9a9a9" />
+    <Button
+        android:id="@+id/btnAddProduct"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="Add Product"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btnGoToMyShop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go To my Shop" />
+
+
+
+</LinearLayout>

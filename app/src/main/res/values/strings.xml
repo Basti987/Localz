@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Localz</string>
+    <string name="forgot_pass">Forgot Password ?</string>
+    <string name="enter_your_">
+
+Enter your registered email address to reset your password
+</string>
+    <string name="email">
+
+Email
+</string>
+    <string name="submit">
+
+Submit
+</string>
+    <string name="change_pass">
+
+Change Password
+</string>
+    <string name="one_time_pa">
+
+One-Time Password
+</string>
+
+    <string name="new_passwor">
+
+New Password
+</string>
+
+    <string name="confirm_new">
+
+Confirm New Password
+</string>
+    <string name="update_now">
+
+Update Now
+</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
