@@ -14,8 +14,7 @@ import com.bumptech.glide.Glide
 
 class ImageAdapter(
     val context: Context,
-    private val mupload: List<Upload>,
-    private val listener:OnItemClickListener
+    private val mupload: List<Upload>
 ) :
     RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
@@ -30,21 +29,18 @@ class ImageAdapter(
 
     }
 
-    interface OnItemClickListener {
-        fun OnAddItemClick(upload: Upload)
-    }
+
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val upload = mupload[position]
         Glide.with(context).load(upload.imageUrl).into(holder.imgShops)
         holder.txtName.text = upload.name
         holder.txtAddress.text = upload.address
-        holder.btnAddToCart.setOnClickListener {
-            holder.btnAddToCart.visibility = View.GONE
-            holder.btnRemoveFromCart.visibility = View.VISIBLE
-            listener.OnAddItemClick(upload)
-        }
-        holder.cardView.setOnClickListener {
+        holder.txtCity.text=upload.city
+        holder.itemView.setOnClickListener {
+            //val intent=Intent(context,ProductActivity)
+            //intent.putExtra("uid",shopUid)
+            //context.startActivity(intent)
 
         }
     }
@@ -57,9 +53,7 @@ class ImageAdapter(
         val imgShops: ImageView = view.findViewById(R.id.imgShops)
         val txtName: TextView = view.findViewById(R.id.txtShopName)
         val txtAddress: TextView = view.findViewById(R.id.txtShopAddress)
-        val btnAddToCart: Button = view.findViewById(R.id.addToCart)
-        val btnRemoveFromCart: Button = view.findViewById(R.id.removeFromCart)
-        val cardView:CardView=view.findViewById(R.id.shop_card_view)
+        val txtCity:TextView=view.findViewById(R.id.txtCity)
 
     }
 

@@ -15,7 +15,7 @@ class ProductActivity : AppCompatActivity() {
     private lateinit var databaseRef: DatabaseReference
     lateinit var mCart: List<CartFields>
     private lateinit var btnGoToCart:Button
-
+//private lateinit var shopId
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
@@ -23,6 +23,7 @@ class ProductActivity : AppCompatActivity() {
         btnGoToCart=findViewById(R.id.btnGoToCart)
         recyclerProductView = findViewById(R.id.recyclerProductView)
         recyclerProductView.layoutManager= LinearLayoutManager(this)
+        //shopId=Intent.getStringExtra("uid)
         databaseRef = FirebaseDatabase.getInstance().reference.child("Shops").child("Products")
         databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {

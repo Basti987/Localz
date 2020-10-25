@@ -24,7 +24,7 @@ class UploadImage : AppCompatActivity() {
     private lateinit var etName: EditText
     private lateinit var btnSave: Button
     private lateinit var etAddress: EditText
-
+    private lateinit var etCity:EditText
     private lateinit var upload: Upload
 
 
@@ -37,6 +37,7 @@ class UploadImage : AppCompatActivity() {
         etName = findViewById(R.id.etName)
         etAddress = findViewById(R.id.etAddress)
         btnSave = findViewById(R.id.btnSave)
+        etCity=findViewById(R.id.etCity)
 
 
         mDatabaseRef = FirebaseDatabase.getInstance().reference.child("Shops")
@@ -47,7 +48,7 @@ class UploadImage : AppCompatActivity() {
             uploadFile()
         }
         btnSave.setOnClickListener {
-            startActivity(Intent(this, NewActivity::class.java))
+            startActivity(Intent(this, UserShopActivity::class.java))
         }
 
     }
@@ -74,7 +75,8 @@ class UploadImage : AppCompatActivity() {
                         upload = Upload(
                             etName.text.toString().trim(),
                             etAddress.text.toString().trim(),
-                            downloadUrl.toString()
+                            downloadUrl.toString(),
+                            etCity.text.toString().trim()
                         )
                         val imageUploadId = mDatabaseRef.push().key.toString()
                         mDatabaseRef.child(imageUploadId).setValue(upload)

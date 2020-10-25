@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AdapterOrderUser(val context: Context, private val orderList: List<OrderUser>) :
@@ -48,9 +49,9 @@ class AdapterOrderUser(val context: Context, private val orderList: List<OrderUs
         if (orderUser.orderStatus == "Cancelled") {
             holder.orderStatus.setTextColor(context.resources.getColor(R.color.red))
         }
-        val calendar = Calendar.getInstance(Locale.ENGLISH)
-        calendar.timeInMillis = orderUser.orderTime.toLong()
-        val formattedDate = DateFormat.format("dd/MM/yyyy", calendar).toString()
+        val sdf = SimpleDateFormat("dd/MM/yyyy")
+        val date=Date(orderUser.orderTime.toLong())
+        val formattedDate = sdf.format(date)
         holder.orderDate.text = formattedDate
         holder.itemView.setOnClickListener {
             val intent=Intent(context,OrderUserDetailsActivity::class.java)

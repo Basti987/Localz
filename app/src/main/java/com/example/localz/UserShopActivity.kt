@@ -4,20 +4,17 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.google.firebase.storage.StorageTask
-import java.util.*
 import kotlin.collections.ArrayList
 
-class NewActivity : AppCompatActivity() {
+class UserShopActivity : AppCompatActivity() {
     private lateinit var recyclerShopView: RecyclerView
     private lateinit var mDatabaseRef: DatabaseReference
     private var mAdapter: ImageAdapter? = null
     lateinit var mUploads: List<Upload>
 
-    lateinit var user: FirebaseUser
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,21 +38,15 @@ class NewActivity : AppCompatActivity() {
                     val obj = Upload(
                         i.child("name").value.toString(),
                         i.child("address").value.toString(),
-                        i.child("imageUrl").value.toString()
+                        i.child("imageUrl").value.toString(),
+                        i.child("city").value.toString()
                     )
+                    //if(i.child("city").value.toString()){}
                     (mUploads as ArrayList<Upload>).add(obj)
                 }
 
-                mAdapter = ImageAdapter(this@NewActivity, mUploads,object:ImageAdapter.OnItemClickListener
-                {
-                    override fun OnAddItemClick(upload: Upload) {
-                        val timestamp:String=""+System.currentTimeMillis()
-
-                    }
-
-                })
+                mAdapter = ImageAdapter(this@UserShopActivity, mUploads)
                 recyclerShopView.adapter = mAdapter
-
             }
 
         })

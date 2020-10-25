@@ -6,6 +6,7 @@ import android.text.format.DateFormat
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -67,9 +68,9 @@ class OrderUserDetailsActivity : AppCompatActivity() {
                     val orderTime: String = snapshot.child("orderTime").value.toString()
                     val orderTo: String = snapshot.child("orderTo").value.toString()
 
-                    val calendar = Calendar.getInstance(Locale.ENGLISH)
-                    calendar.timeInMillis = orderTime.toLong()
-                    val formattedDate = DateFormat.format("dd/MM/yyyy", calendar).toString()
+                    val sdf = SimpleDateFormat("dd/MM/yyyy")
+                    val date=Date(orderTime.toLong())
+                    val formattedDate = sdf.format(date)
                     when (orderStatus) {
                         "In Progress" -> {
                             orderStatusTv.setTextColor(resources.getColor(R.color.green))

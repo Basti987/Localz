@@ -28,7 +28,7 @@
     <ImageView
         android:id="@+id/imgProduct"
         android:layout_width="350dp"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_centerInParent="true"
         android:scaleType="fitXY" />
 
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10sp"
+        android:layout_margin="3dp"
         android:text="Save"
         android:textAllCaps="false"
         android:textSize="16sp" />
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgProduct"
-        android:layout_margin="8dp"
+        android:layout_margin="3dp"
         android:textSize="16sp"
         android:hint="Name"/>
     <EditText
@@ -55,8 +55,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etName"
-        android:layout_margin="8dp"
+        android:layout_margin="3dp"
         android:textSize="16sp"
         android:hint="Address"/>
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etAddress"
+        android:layout_margin="3dp"
+        android:hint="City"/>
 
 </RelativeLayout>
