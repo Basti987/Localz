@@ -1,6 +1,7 @@
 package com.example.localz
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,8 +38,8 @@ class CartItemAdapter(val context: Context, private val cartItems: List<CartDeta
         holder.btnRemoveItem.setOnClickListener {
             databaseRef = FirebaseDatabase.getInstance().reference.child("Shops").child("UsersCart")
             databaseRef.child(mcartItems.productId).removeValue()
-            notifyItemChanged(position)
-            notifyDataSetChanged()
+            val intent= Intent(context,ProductActivity::class.java)
+            context.startActivity(intent)
         }
 
     }

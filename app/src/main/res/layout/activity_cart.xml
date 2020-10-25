@@ -43,7 +43,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/llCart"
         android:layout_marginTop="0dp"
         android:padding="5dp" />
@@ -70,15 +70,16 @@
                 android:text="Total Payment"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/TotalPayment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Rs.530"
-                android:textStyle="bold"
+                android:background="#ffffff"
                 android:paddingLeft="4dp"
-                android:background="#ffffff"/>
+                android:text="Rs.530"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
         </LinearLayout>
 
 
@@ -244,7 +245,6 @@
                     android:id="@+id/Amount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/view2"
                     android:layout_weight="4"
                     android:padding="5dp"
                     android:text="Total Amount"
@@ -269,4 +269,5 @@
             </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
 </RelativeLayout>
