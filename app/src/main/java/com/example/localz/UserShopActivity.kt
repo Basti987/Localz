@@ -41,7 +41,7 @@ class UserShopActivity : AppCompatActivity() {
                         i.child("imageUrl").value.toString(),
                         i.child("city").value.toString()
                     )
-                    //if(i.child("city").value.toString()){}
+                    //if(i.child("city").value.toString()==customercity){}
                     (mUploads as ArrayList<Upload>).add(obj)
                 }
 
