@@ -30,7 +30,7 @@ class AdapterOrderedItem(val context: Context,private val orderedItemList:List<O
         holder.itemTitle.text=orderedItem.name
         holder.itemPrice.text="Rs. ${orderedItem.price}"
         holder.totalPrice.text="Rs. ${orderedItem.cost}"
-        holder.totalQuantity.text=orderedItem.quantity
+        holder.totalQuantity.text=orderedItem.quantity//hiiii
 
 
     }
