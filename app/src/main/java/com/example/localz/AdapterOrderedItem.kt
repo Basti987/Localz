@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-//done cloning
+//done cloning in android studio
 class AdapterOrderedItem(val context: Context,private val orderedItemList:List<OrderedItem>):RecyclerView.Adapter<AdapterOrderedItem.HolderOrderedItem>() {
     class HolderOrderedItem(view: View) :RecyclerView.ViewHolder(view){
         val itemTitle:TextView=view.findViewById(R.id.itemTitle)
