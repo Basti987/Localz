@@ -44,8 +44,6 @@ class AdapterOrderShop(val context: Context, private val orderSeller: List<Model
         if (orderShop.orderStatus == "Cancelled") {
             holder.orderStatus.setTextColor(context.resources.getColor(R.color.red))
         }
-        //val calendar = Calendar.getInstance(Locale.ENGLISH)
-        //calendar.timeInMillis == orderShop.orderTime.toLong()
 
         val sdf = SimpleDateFormat("dd/MM/yyyy")
         val date = Date(orderShop.orderTime.toLong())
@@ -55,7 +53,7 @@ class AdapterOrderShop(val context: Context, private val orderSeller: List<Model
         holder.itemView.setOnClickListener {
             val intent=Intent(context,OrderDetailsSellerActivity::class.java)
             intent.putExtra("orderId",orderShop.orderId)
-            intent.putExtra("orderBy",orderShop.orderBy)
+            intent.putExtra("orderBy",orderShop.orderBy)//uid of the customer
             context.startActivity(intent)
         }
     }

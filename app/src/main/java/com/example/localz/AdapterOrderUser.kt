@@ -2,7 +2,6 @@ package com.example.localz
 
 import android.content.Context
 import android.content.Intent
-import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,7 +54,7 @@ class AdapterOrderUser(val context: Context, private val orderList: List<OrderUs
         holder.orderDate.text = formattedDate
         holder.itemView.setOnClickListener {
             val intent=Intent(context,OrderUserDetailsActivity::class.java)
-            intent.putExtra("orderTo",orderUser.orderTo)
+            intent.putExtra("orderTo",orderUser.orderTo)//uid of the shop
             intent.putExtra("orderId",orderUser.orderId)
             context.startActivity(intent)
         }

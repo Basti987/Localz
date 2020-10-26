@@ -77,17 +77,28 @@ class CartActivity : AppCompatActivity() {
                     cartItemList
                 )
                 recyclerCartView.adapter = cartItemAdapter
-                txtDeliveryCharge.text = "Rs.10"
+                txtDeliveryCharge.text = "Rs.10"//delivery charge
                 txtPrice.text = "Rs.${allTotalPrice}"
-                val amount = allTotalPrice + 10.0
+
+                var amount: Double = 0.0
+                when {
+                    counter > 1 -> {
+                        txtTotalPrice.text = "Price(${counter} items)"
+                        amount = allTotalPrice + 10.0//allTotalPrice+delivery charge
+                    }
+                    counter == 1 -> {
+                        txtTotalPrice.text = "Price(${counter} item)"
+                        amount = allTotalPrice + 10.0//allTotalPrice+delivery charge
+                    }
+                    counter == 0 -> {
+                        txtTotalPrice.text = "Price(${counter} item)"
+                        txtDeliveryCharge.text = "Rs.0"
+                        amount = allTotalPrice + 0.0//allTotalPrice+delivery charge
+                    }
+                }
                 txtTotalAmount.text = "Rs.${amount}"
                 totalPayment.text = "Rs.${amount}"
                 txtTotalItems.text = "Total Item :- ${counter}"
-                if (counter > 1) {
-                    txtTotalPrice.text = "Price(${counter} items)"
-                } else {
-                    txtTotalPrice.text = "Price(${counter} item)"
-                }
             }
         })
         btnContinue.setOnClickListener {
@@ -95,9 +106,15 @@ class CartActivity : AppCompatActivity() {
                 Toast.makeText(this, "No item in the cart", Toast.LENGTH_SHORT).show()
             }
             submitOrder()
-
+            clearCart()
         }
 
+    }
+
+    private fun clearCart() {
+        databaseRef.removeValue()
+        val intent = Intent(this, ProductActivity::class.java)
+        startActivity(intent)
     }
 
     private fun submitOrder() {
@@ -111,7 +128,7 @@ class CartActivity : AppCompatActivity() {
         val orderCost = cost
         val orderBy = "Ekagra Agrawal"
         val orderTo = "-MJ1__8Qk95zkMFthUa4"
-        modelOrderUser = OrderUser(orderId, orderTime, orderStatus, orderCost, orderBy,orderTo)
+        modelOrderUser = OrderUser(orderId, orderTime, orderStatus, orderCost, orderBy, orderTo)
 
         val ref: DatabaseReference =
             FirebaseDatabase.getInstance().reference.child("Shops").child(orderTo).child("Orders")
@@ -133,16 +150,16 @@ class CartActivity : AppCompatActivity() {
                     ref.child(timestamp).child("Items").child(pId).setValue(headers)
                 }
                 progressDialog.dismiss()
-                Toast.makeText(this,"Order Placed Successfully",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Order Placed Successfully", Toast.LENGTH_SHORT).show()
 
-                val intent= Intent(this,OrderUserDetailsActivity::class.java)
-                intent.putExtra("orderTo",orderTo)
-                intent.putExtra("orderId",orderId)
+                val intent = Intent(this, OrderUserDetailsActivity::class.java)
+                intent.putExtra("orderTo", orderTo)
+                intent.putExtra("orderId", orderId)
                 startActivity(intent)
             }
             .addOnFailureListener {
                 progressDialog.dismiss()
-                Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }
 
 
